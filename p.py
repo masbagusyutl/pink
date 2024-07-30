@@ -70,7 +70,7 @@ while True:
             
             if daily_reward_response.status_code != 200:
                 error_message = daily_reward_response.json().get('message', 'Tidak ada pesan error')
-                print(f"Error saat klaim hadiah harian: {error_message}")
+                print(f"{error_message}")
         else:
             print(f"Error saat mendaftar: {join_response.json().get('message', 'Tidak ada pesan error')}")
         
