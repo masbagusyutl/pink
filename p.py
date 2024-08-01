@@ -62,17 +62,22 @@ while True:
 
             print(f"Username: {user_name}")
             print(f"Pinky: {pinky}")
-            print(f"Hadiah Harian: {daily_reward_count}")
+            print(f"Hadiah Hari ini: {daily_reward_count}")
 
             # Melakukan request POST untuk klaim hadiah harian
             daily_reward_payload = {'chatId': chat_id}
             daily_reward_response = post_request(daily_reward_url, headers, daily_reward_payload)
             
-            if daily_reward_response.status_code != 200:
-                error_message = daily_reward_response.json().get('message', 'Tidak ada pesan error')
+            daily_reward_data = daily_reward_response.json()
+            if daily_reward_response.status_code == 200:
+                success_message = daily_reward_data.get('message', 'Berhasil klaim hadiah harian')
+                print(f"{success_message}")
+            else:
+                error_message = daily_reward_data.get('message', 'Tidak ada pesan error')
                 print(f"{error_message}")
         else:
-            print(f"Error saat mendaftar: {join_response.json().get('message', 'Tidak ada pesan error')}")
+            error_message = join_response.json().get('message', 'Tidak ada pesan error')
+            print(f"{error_message}")
         
         # Menunggu 5 detik sebelum memproses akun berikutnya
         time.sleep(5)
