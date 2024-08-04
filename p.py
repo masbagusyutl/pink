@@ -24,8 +24,8 @@ def post_request(url, headers, payload):
     return response
 
 # URL dan headers untuk request
-base_join_url = 'https://king-prawn-app-99fp2.ondigitalocean.app/join/'
-daily_reward_url = 'https://king-prawn-app-99fp2.ondigitalocean.app/users/daily-reward'
+base_join_url = 'https://walrus-app-2-trx7c.ondigitalocean.app/join/'
+daily_reward_url = 'https://walrus-app-2-trx7c.ondigitalocean.app/users/daily-reward'
 headers = {
     'Accept': 'application/json, text/plain, */*',
     'Content-Type': 'application/json',
